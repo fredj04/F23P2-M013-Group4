@@ -1,7 +1,8 @@
 import random
+hap = [7,4,10,5]
+dev = [3,10,6,2]
 
 #TASK 1
-
 
 
 
@@ -16,7 +17,17 @@ import random
 
 
 #TASK 3
+def eGreedy(e=10):
+  c1 = random.normalvariate(hap[1],dev[1])
+  c2 = random.normalvariate(hap[2],dev[2])
+  c3 = random.normalvariate(hap[3],dev[3])
+  c4 = random.normalvariate(hap[4],dev[4])
 
+  for i in range(196):
+    r = random.random()
+    if r < (e/100):
+      cblank = random.randomint(1,4)
+    else:
 
 
 
