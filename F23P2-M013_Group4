@@ -37,7 +37,7 @@ def eGreedy(e=10):
         c2.append(random.normalvariate(hap[1],dev[1]))
       elif cblank == 3:
         c3.append(random.normalvariate(hap[2],dev[2]))
-      else cblank == 4:
+      else: #cblank == 4
         c4.append(random.normalvariate(hap[3],dev[3]))
     else:
       a = []
@@ -52,8 +52,10 @@ def eGreedy(e=10):
         c2.append(random.normalvariate(hap[1],dev[1]))
       elif avg == a[2]:
         c3.append(random.normalvariate(hap[2],dev[2]))
-      elif avg == a[3]:
+      else: #avg == a[3]:
         c4.append(random.normalvariate(hap[3],dev[2]))
+  cf = c1+c2+c3+c4
+  return sum(cf)
 
       
 
