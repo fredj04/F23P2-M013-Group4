@@ -17,35 +17,37 @@ dev = [3,10,6,2]
 
 
 #TASK 3
+# This tasks finds the total amount of happiness for all 200 days.
 def eGreedy(e=10):
   c1=[]
   c2=[]
   c3=[]
-  c4=[]
+  c4=[] # sets up 4 empty list
   c1.append(random.normalvariate(hap[0],dev[0]))
   c2.append(random.normalvariate(hap[1],dev[1]))
   c3.append(random.normalvariate(hap[2],dev[2]))
-  c4.append(random.normalvariate(hap[3],dev[3]))
+  c4.append(random.normalvariate(hap[3],dev[3])) #appends a random happiness value for each cafeteria once
 
   for i in range(196):
-    r = random.random()
-    if r < (e/100):
-      cblank = random.randomint(1,4)
-      if cblank == 1:
+    r = random.random() # gets a random float between 0-1
+    if r < (e/100): # if it is lower then then .10 in this case.
+      cblank = random.randomint(1,4) # generates a random int between 1-4 inclusive
+      if cblank == 1: 
         c1.append(random.normalvariate(hap[0],dev[0]))
       elif cblank == 2:
         c2.append(random.normalvariate(hap[1],dev[1]))
       elif cblank == 3:
         c3.append(random.normalvariate(hap[2],dev[2]))
       else: #cblank == 4
-        c4.append(random.normalvariate(hap[3],dev[3]))
+        c4.append(random.normalvariate(hap[3],dev[3])) # if the random int is the same as the value for the 
+#specific cafeteria append a radnom happiness value to it
     else:
       a = []
       a.append(sum(c1)/len(c1))
       a.append(sum(c2)/len(c2))
       a.append(sum(c3)/len(c3))
-      a.append(sum(c4)/len(c4))
-      avg = max(a)
+      a.append(sum(c4)/len(c4)) # finds the average happiness value for each cafeteria
+      avg = max(a) #avg is the highest average happiness val
       if avg == a[0]:
         c1.append(random.normalvariate(hap[0],dev[0]))
       elif avg == a[1]:
@@ -53,9 +55,10 @@ def eGreedy(e=10):
       elif avg == a[2]:
         c3.append(random.normalvariate(hap[2],dev[2]))
       else: #avg == a[3]:
-        c4.append(random.normalvariate(hap[3],dev[2]))
-  cf = c1+c2+c3+c4
-  return sum(cf)
+        c4.append(random.normalvariate(hap[3],dev[2])) # if the index of avg equals the specific cafeterias index then append
+# a random happiness value to it
+  cf = c1+c2+c3+c4 # combines all the lists
+  return sum(cf) # returns their sum
 
       
 
