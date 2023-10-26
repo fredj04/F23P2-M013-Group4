@@ -18,10 +18,10 @@ dev = [3,10,6,2]
 
 #TASK 3
 def eGreedy(e=10):
-  c1 = random.normalvariate(hap[1],dev[1])
-  c2 = random.normalvariate(hap[2],dev[2])
-  c3 = random.normalvariate(hap[3],dev[3])
-  c4 = random.normalvariate(hap[4],dev[4])
+  c1 = random.normalvariate(hap[0],dev[0])
+  c2 = random.normalvariate(hap[1],dev[1])
+  c3 = random.normalvariate(hap[2],dev[2])
+  c4 = random.normalvariate(hap[3],dev[3])
 
   for i in range(196):
     r = random.random()
