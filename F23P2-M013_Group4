@@ -18,16 +18,40 @@ dev = [3,10,6,2]
 
 #TASK 3
 def eGreedy(e=10):
-  c1 = random.normalvariate(hap[0],dev[0])
-  c2 = random.normalvariate(hap[1],dev[1])
-  c3 = random.normalvariate(hap[2],dev[2])
-  c4 = random.normalvariate(hap[3],dev[3])
+  c1.append(random.normalvariate(hap[0],dev[0]))
+  c2.append(random.normalvariate(hap[1],dev[1]))
+  c3.append(random.normalvariate(hap[2],dev[2]))
+  c4.append(random.normalvariate(hap[3],dev[3]))
 
   for i in range(196):
     r = random.random()
     if r < (e/100):
       cblank = random.randomint(1,4)
+      if cblank == 1:
+        c1.append(random.normalvariate(hap[0],dev[0]))
+      elif cblank == 2:
+        c2.append(random.normalvariate(hap[1],dev[1]))
+      elif cblank == 3:
+        c3.append(random.normalvariate(hap[2],dev[2]))
+      else cblank == 4:
+        c4.append(random.normalvariate(hap[3],dev[3]))
     else:
+      a = []
+      a.append(sum(c1)/len(c1))
+      a.append(sum(c2)/len(c2))
+      a.append(sum(c3)/len(c3))
+      a.append(sum(c4)/len(c4))
+      avg = max(a)
+      if avg == a[0]:
+        c1.append(random.normalvariate(hap[0],dev[0]))
+      elif avg == a[1]:
+        c2.append(random.normalvariate(hap[1],dev[1]))
+      elif avg == a[2]:
+        c3.append(random.normalvariate(hap[2],dev[2]))
+      elif avg == a[3]:
+        c4.append(random.normalvariate(hap[3],dev[2]))
+
+      
 
 
 
