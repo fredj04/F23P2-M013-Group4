@@ -34,53 +34,6 @@ def exploitOnly():
     return sum(c) # returns the sum of the final list
 
 
-
-
-
-
-    # Initialize variables for best cafeteria, the best happiness value, and total happiness
-    best_cafeteria = None
-    best_happiness = 0
-    total_happiness = 0
-
-    # Run through each cafeteria once
-    for day in range(1, 5):
-        # Generate happiness values based on normal distribution for the current cafeteria
-        if day == 1:
-            mean = 7
-            standard_deviation = 3
-        elif day == 2:
-            mean = 4
-            standard_deviation = 10
-        elif day == 3:
-            mean = 10
-            standard_deviation = 6
-        else:
-            mean = 5
-            standard_deviation = 2
-
-        happiness_value = random.normalvariate(mean, standard_deviation)
-        total_happiness += happiness_value
-
-        # Update the best cafeteria for the next 196 days
-        if happiness_value > best_happiness:
-            best_happiness = happiness_value
-            best_cafeteria = day
-
-    # Visit the best cafeteria for the next 196 days
-    for day in range(5, 201):
-        total_happiness += best_happiness
-
-    return total_happiness
-
-# Call the function and print the result
-total_happiness = exploitOnly()
-print("Total happiness over 200 days:", total_happiness)
-
-
-
-
-
 #TASK 2
 
 
