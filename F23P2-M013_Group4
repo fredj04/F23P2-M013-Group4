@@ -30,7 +30,7 @@ def exploitOnly():
         for i in range(196)
             c4.append(random.normalvariate(hap[3],dev[3]))
     c = c1+c2+c3+c4
-    return c
+    return sum(c)
 
 
 
