@@ -10,16 +10,17 @@ def exploitOnly():
     c2= []
     c3= []
     c4 = []
-    cfinal=[]
+    cfinal=[] # creates empty lists to store values
     c1.append(random.normalvariate(hap[0],dev[0]))
     c2.append(random.normalvariate(hap[1],dev[1]))
     c3.append(random.normalvariate(hap[2],dev[2]))
-    c4.append(random.normalvariate(hap[3],dev[3]))
-    cfinal = c1+c2+c3+c4
-    m = max(cfinal)
-    if m == cfinal[0]:
-        for i in range(196):
-            c1.append(random.normalvariate(hap[0],dev[0]))
+    c4.append(random.normalvariate(hap[3],dev[3])) # visit each cafteria once to start and generates a random happiness value
+    cfinal = c1+c2+c3+c4 # creates list with first 4 happiness values
+    m = max(cfinal) # finds highest happiness value from first four days
+    if m == cfinal[0]: # checks to see if m is equal to value at index 0 of cfinal
+        for i in range(196): 
+            c1.append(random.normalvariate(hap[0],dev[0])) # if so proceeds to loop through generating a new happiness value for the
+# rest of the 196 days to the specific cafeteria
     elif m == cfinal[1]:
         for i in range(196)
             c2.append(random.normalvariate(hap[1],dev[1]))
@@ -29,8 +30,8 @@ def exploitOnly():
     else: #avg == a[3]:
         for i in range(196)
             c4.append(random.normalvariate(hap[3],dev[3]))
-    c = c1+c2+c3+c4
-    return sum(c)
+    c = c1+c2+c3+c4 #adds all of the lists together
+    return sum(c) # returns the sum of the final list
 
 
 
