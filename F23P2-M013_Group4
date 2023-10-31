@@ -3,7 +3,7 @@ hap = [7,4,10,5]
 dev = [3,10,6,2]
 
 #TASK 1
-
+# This task finds the sum of happiness values over 200 days using the exploit only method
 def exploitOnly():
     c1 = []
     c2= []
