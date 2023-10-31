@@ -55,7 +55,7 @@ def eGreedy(e=10):
       elif avg == a[2]:
         c3.append(random.normalvariate(hap[2],dev[2]))
       else: #avg == a[3]:
-        c4.append(random.normalvariate(hap[3],dev[2])) # if the index of avg equals the specific cafeterias index then append
+        c4.append(random.normalvariate(hap[3],dev[3])) # if the index of avg equals the specific cafeterias index then append
 # a random happiness value to it
   cf = c1+c2+c3+c4 # combines all the lists
   return sum(cf) # returns their sum
