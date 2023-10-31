@@ -106,3 +106,88 @@ def eGreedy(e=10):
 
 
 #TASK 4
+# this task simulates all of the previous functions and outputs calculated averages for them.
+def ExploreOnly():
+    return 20
+# don't have real code, using integer replacement
+
+
+def ExploitOnly():
+    return 30
+# don't have real code, using integer replacement
+
+
+def eGreedy(e=10):
+    if e == 10:
+        return 10
+    else:
+        return 40
+# don't have real code, using integer replacement
+
+
+def simulation(t: int, e=10):
+    Explore_Count = 0
+    Exploit_Count = 0
+    eGreedy_Count = 0
+    C1 = 7
+    C2 = 4
+    C3 = 10
+    C4 = 5
+
+    for i in range(t):
+        Explore_Count += ExploreOnly()
+        Exploit_Count += ExploitOnly()
+        eGreedy_Count += eGreedy(e)
+# created three variables, added the value of the three functions to them t times
+
+    Optimum_Happiness = 200 * C3
+
+    Expected_Happiness_Explore = 50 * (C1 + C2 + C3 + C4)
+    Expected_Regret_Explore = Optimum_Happiness - Expected_Happiness_Explore
+    Simulated_Happiness_Explore = Explore_Count / t
+    Simulated_Regret_Explore = Optimum_Happiness - Simulated_Happiness_Explore
+
+    Expected_Happiness_Exploit = (C1 + C2 + C4) + (197 * C3)
+    Expected_Regret_Exploit = Optimum_Happiness - Expected_Happiness_Exploit
+    Simulated_Happiness_Exploit = Exploit_Count / t
+    Simulated_Regret_Exploit = Optimum_Happiness - Simulated_Happiness_Exploit
+
+    Expected_Happiness_eGreedy = (200 * (((100-e)/100) * C3) + (200 * ((e/100)*(C1 + C2 + C3 + C4)))
+    Expected_Regret_eGreedy = Optimum_Happiness - Expected_Happiness_eGreedy
+    Simulated_Happiness_eGreedy = eGreedy_Count / t
+    Simulated_Regret_eGreedy = Optimum_Happiness - Simulated_Happiness_eGreedy
+# calculating all values of optimum happiness, expected values, and simulated values
+
+    print("Optimum Happiness: " + str(Optimum_Happiness))
+    print("\n")
+
+    print("ExploreOnly:")
+    print("\n")
+    print("Expected Happiness: " + str(Expected_Happiness_Explore))
+    print("\n")
+    print("Expected Regret: " + str(Expected_Regret_Explore))
+    print("\n")
+    print("Simulated Happiness: " + str(Simulated_Happiness_Explore))
+    print("\n")
+    print("Simulated Regret: " + str(Simulated_Regret_Explore))
+
+    print("ExploitOnly:")
+    print("\n")
+    print("Expected Happiness: " + str(Expected_Happiness_Exploit))
+    print("\n")
+    print("Expected Regret: " + str(Expected_Regret_Exploit))
+    print("\n")
+    print("Simulated Happiness: " + str(Simulated_Happiness_Exploit))
+    print("\n")
+    print("Simulated Regret: " + str(Simulated_Regret_Exploit))
+
+    print("eGreedy:")
+    print("\n")
+    print("Expected Happiness: " + str(Expected_Happiness_eGreedy))
+    print("\n")
+    print("Expected Regret: " + str(Expected_Regret_eGreedy))
+    print("\n")
+    print("Simulated Happiness: " + str(Simulated_Happiness_eGreedy))
+    print("\n")
+    print("Simulated Regret: " + str(Simulated_Regret_eGreedy))
+# printing out every value that was calculated before
