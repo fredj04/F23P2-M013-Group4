@@ -117,8 +117,8 @@ def simulation(t: int, e=10):
 # changed these so they equal the global variables
 
     for i in range(t):
-        Explore_Count += ExploreOnly()
-        Exploit_Count += ExploitOnly()
+        Explore_Count += exploreOnly()
+        Exploit_Count += exploitOnly()
         eGreedy_Count += eGreedy(e)
 # created three variables, added the value of the three functions to them t times
 
