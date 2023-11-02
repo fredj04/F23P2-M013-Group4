@@ -134,7 +134,7 @@ def simulation(t: int, e=10):
     Simulated_Happiness_Exploit = Exploit_Count / t
     Simulated_Regret_Exploit = Optimum_Happiness - Simulated_Happiness_Exploit
 
-    Expected_Happiness_eGreedy = (200 * (((100-e)/100) * C3) + (200 * ((e/400)*(C1 + C2 + C3 + C4)))
+    Expected_Happiness_eGreedy = (200 * (((100-e)/100) * C3) + (200 * ((e/400)*(C1 + C2 + C3 + C4))))
     Expected_Regret_eGreedy = Optimum_Happiness - Expected_Happiness_eGreedy
     Simulated_Happiness_eGreedy = eGreedy_Count / t
     Simulated_Regret_eGreedy = Optimum_Happiness - Simulated_Happiness_eGreedy
