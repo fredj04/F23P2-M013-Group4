@@ -35,23 +35,29 @@ def exploitOnly():
 
 #TASK 2
 import random
-import statistics
-pairs = [(7, 3), (4, 10), (10, 6), (5, 2)] # sets the happiness values and deviation as a list of tuples
-
-def exploreOnly() -> float:
-    sum_happiness = 0  # sets an empty value
-
-    for i in range(4):  # this loop will run for the four cafeteria
-        hap, dev = pairs[i]
-        for s in range(50):  # loops over the 50 days of each cafeteria
-            happiness = random.normalvariate(hap, dev)
-            sum_happiness += happiness  # sum_happiness is equal to the value of happiness
-    return sum_happiness
 
 
-sum_happiness = exploreOnly()  # sets the sum_happiness to equal the sum of happiness from the 4 loops over 200 days
-print("Sum of Happiness:", sum_happiness)  # prints the total sum of happiness
+hap = [7, 4, 10, 5]
+dev = [3, 10, 6, 2]
 
+
+def exploreOnly():
+    c1 = []
+    c2 = []
+    c3 = []
+    c4 = []  # created four empty lists for each cafeteria
+
+    for f in range(50):
+        c1.append(random.normalvariate(hap[0], dev[0]))
+    for r in range(50):
+        c2.append(random.normalvariate(hap[1], dev[1]))
+    for e in range(50):
+        c3.append(random.normalvariate(hap[2], dev[2]))
+    for d in range(50):
+        c4.append(random.normalvariate(hap[3], dev[3]))
+        # generates random values for each cafeteria and adds them to the list.
+    total = c1 + c2 + c3 + c4  # takes the values of each cafeteria and adds them to a new list
+    return sum(total)  # turns the list into a sum of all the happiness from each cafeteria
 
 
 
