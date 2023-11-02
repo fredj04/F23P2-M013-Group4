@@ -21,13 +21,13 @@ def exploitOnly():
             c1.append(random.normalvariate(hap[0],dev[0])) # if so proceeds to loop through generating a new happiness value for the
 # rest of the 196 days to the specific cafeteria
     elif m == cfinal[1]:
-        for i in range(196)
+        for i in range(196):
             c2.append(random.normalvariate(hap[1],dev[1]))
     elif m == cfinal[2]:
-        for i in range(196)
+        for i in range(196):
             c3.append(random.normalvariate(hap[2],dev[2]))
     else: #avg == a[3]:
-        for i in range(196)
+        for i in range(196):
             c4.append(random.normalvariate(hap[3],dev[3]))
     c = c1+c2+c3+c4 #adds all of the lists together
     return sum(c) # returns the sum of the final list
@@ -70,7 +70,7 @@ def eGreedy(e=10):
   for i in range(196):
     r = random.random() # gets a random float between 0-1
     if r < (e/100): # if it is lower then then .10 in this case.
-      cblank = random.randomint(1,4) # generates a random int between 1-4 inclusive
+      cblank = random.randint(1,4) # generates a random int between 1-4 inclusive
       if cblank == 1: 
         c1.append(random.normalvariate(hap[0],dev[0]))
       elif cblank == 2:
