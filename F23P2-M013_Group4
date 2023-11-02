@@ -34,13 +34,6 @@ def exploitOnly():
 
 
 #TASK 2
-import random
-
-
-hap = [7, 4, 10, 5]
-dev = [3, 10, 6, 2]
-
-
 def exploreOnly():
     c1 = []
     c2 = []
@@ -113,24 +106,6 @@ def eGreedy(e=10):
 
 #TASK 4
 # this task simulates all of the previous functions and outputs calculated averages for them.
-def ExploreOnly():
-    return 20
-# don't have real code, using integer replacement
-
-
-def ExploitOnly():
-    return 30
-# don't have real code, using integer replacement
-
-
-def eGreedy(e=10):
-    if e == 10:
-        return 10
-    else:
-        return 40
-# don't have real code, using integer replacement
-
-
 def simulation(t: int, e=10):
     Explore_Count = 0
     Exploit_Count = 0
