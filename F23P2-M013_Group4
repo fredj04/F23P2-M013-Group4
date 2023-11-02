@@ -36,7 +36,7 @@ def exploitOnly():
 #TASK 2
 import random
 import statistics
-pairs = [(7, 5), (4, 4), (10, 25), (5, 10)] # sets the happiness values and deviation as a list of tuples
+pairs = [(7, 3), (4, 10), (10, 6), (5, 2)] # sets the happiness values and deviation as a list of tuples
 
 def exploreOnly() -> float:
     sum_happiness = 0  # sets an empty value
