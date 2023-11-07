@@ -1,39 +1,45 @@
 import random
-hap = [7,4,10,5]
-dev = [3,10,6,2]
 
-#TASK 1
+
+
+hap = [7, 4, 10, 5]
+dev = [3, 10, 6, 2]
+
+
+# TASK 1
 # This task finds the sum of happiness values over 200 days using the exploit only method
 def exploitOnly():
     c1 = []
-    c2= []
-    c3= []
+    c2 = []
+    c3 = []
     c4 = []
-    cfinal=[] # creates empty lists to store values
-    c1.append(random.normalvariate(hap[0],dev[0]))
-    c2.append(random.normalvariate(hap[1],dev[1]))
-    c3.append(random.normalvariate(hap[2],dev[2]))
-    c4.append(random.normalvariate(hap[3],dev[3])) # visit each cafteria once to start and generates a random happiness value
-    cfinal = c1+c2+c3+c4 # creates list with first 4 happiness values
-    m = max(cfinal) # finds highest happiness value from first four days
-    if m == cfinal[0]: # checks to see if m is equal to value at index 0 of cfinal
-        for i in range(196): 
-            c1.append(random.normalvariate(hap[0],dev[0])) # if so proceeds to loop through generating a new happiness value for the
-# rest of the 196 days to the specific cafeteria
+    cfinal = []  # creates empty lists to store values
+    c1.append(random.normalvariate(hap[0], dev[0]))
+    c2.append(random.normalvariate(hap[1], dev[1]))
+    c3.append(random.normalvariate(hap[2], dev[2]))
+    c4.append(random.normalvariate(hap[3],
+                                   dev[3]))  # visit each cafteria once to start and generates a random happiness value
+    cfinal = c1 + c2 + c3 + c4  # creates list with first 4 happiness values
+    m = max(cfinal)  # finds highest happiness value from first four days
+    if m == cfinal[0]:  # checks to see if m is equal to value at index 0 of cfinal
+        for i in range(196):
+            c1.append(random.normalvariate(hap[0], dev[
+                0]))  # if so proceeds to loop through generating a new happiness value for the
+    # rest of the 196 days to the specific cafeteria
     elif m == cfinal[1]:
         for i in range(196):
-            c2.append(random.normalvariate(hap[1],dev[1]))
+            c2.append(random.normalvariate(hap[1], dev[1]))
     elif m == cfinal[2]:
         for i in range(196):
-            c3.append(random.normalvariate(hap[2],dev[2]))
-    else: #avg == a[3]:
+            c3.append(random.normalvariate(hap[2], dev[2]))
+    else:  # avg == a[3]:
         for i in range(196):
-            c4.append(random.normalvariate(hap[3],dev[3]))
-    c = c1+c2+c3+c4 #adds all of the lists together
-    return sum(c) # returns the sum of the final list
+            c4.append(random.normalvariate(hap[3], dev[3]))
+    c = c1 + c2 + c3 + c4  # adds all of the lists together
+    return sum(c)  # returns the sum of the final list
 
 
-#TASK 2
+# TASK 2
 def exploreOnly():
     c1 = []
     c2 = []
@@ -53,58 +59,53 @@ def exploreOnly():
     return sum(total)  # turns the list into a sum of all the happiness from each cafeteria
 
 
-
-
-#TASK 3
+# TASK 3
 # This tasks finds the total amount of happiness for all 200 days.
 def eGreedy(e=10):
-  c1=[]
-  c2=[]
-  c3=[]
-  c4=[] # sets up 4 empty list
-  c1.append(random.normalvariate(hap[0],dev[0]))
-  c2.append(random.normalvariate(hap[1],dev[1]))
-  c3.append(random.normalvariate(hap[2],dev[2]))
-  c4.append(random.normalvariate(hap[3],dev[3])) #appends a random happiness value for each cafeteria once
+    c1 = []
+    c2 = []
+    c3 = []
+    c4 = []  # sets up 4 empty list
+    c1.append(random.normalvariate(hap[0], dev[0]))
+    c2.append(random.normalvariate(hap[1], dev[1]))
+    c3.append(random.normalvariate(hap[2], dev[2]))
+    c4.append(random.normalvariate(hap[3], dev[3]))  # appends a random happiness value for each cafeteria once
 
-  for i in range(196):
-    r = random.random() # gets a random float between 0-1
-    if r < (e/100): # if it is lower then then .10 in this case.
-      cblank = random.randint(1,4) # generates a random int between 1-4 inclusive
-      if cblank == 1: 
-        c1.append(random.normalvariate(hap[0],dev[0]))
-      elif cblank == 2:
-        c2.append(random.normalvariate(hap[1],dev[1]))
-      elif cblank == 3:
-        c3.append(random.normalvariate(hap[2],dev[2]))
-      else: #cblank == 4
-        c4.append(random.normalvariate(hap[3],dev[3])) # if the random int is the same as the value for the 
-#specific cafeteria append a radnom happiness value to it
-    else:
-      a = []
-      a.append(sum(c1)/len(c1))
-      a.append(sum(c2)/len(c2))
-      a.append(sum(c3)/len(c3))
-      a.append(sum(c4)/len(c4)) # finds the average happiness value for each cafeteria
-      avg = max(a) #avg is the highest average happiness val
-      if avg == a[0]:
-        c1.append(random.normalvariate(hap[0],dev[0]))
-      elif avg == a[1]:
-        c2.append(random.normalvariate(hap[1],dev[1]))
-      elif avg == a[2]:
-        c3.append(random.normalvariate(hap[2],dev[2]))
-      else: #avg == a[3]:
-        c4.append(random.normalvariate(hap[3],dev[3])) # if the index of avg equals the specific cafeterias index then append
-# a random happiness value to it
-  cf = c1+c2+c3+c4 # combines all the lists
-  return sum(cf) # returns their sum
-
-      
-
+    for i in range(196):
+        r = random.random()  # gets a random float between 0-1
+        if r < (e / 100):  # if it is lower then then .10 in this case.
+            cblank = random.randint(1, 4)  # generates a random int between 1-4 inclusive
+            if cblank == 1:
+                c1.append(random.normalvariate(hap[0], dev[0]))
+            elif cblank == 2:
+                c2.append(random.normalvariate(hap[1], dev[1]))
+            elif cblank == 3:
+                c3.append(random.normalvariate(hap[2], dev[2]))
+            else:  # cblank == 4
+                c4.append(random.normalvariate(hap[3], dev[3]))  # if the random int is the same as the value for the
+        # specific cafeteria append a radnom happiness value to it
+        else:
+            a = []
+            a.append(sum(c1) / len(c1))
+            a.append(sum(c2) / len(c2))
+            a.append(sum(c3) / len(c3))
+            a.append(sum(c4) / len(c4))  # finds the average happiness value for each cafeteria
+            avg = max(a)  # avg is the highest average happiness val
+            if avg == a[0]:
+                c1.append(random.normalvariate(hap[0], dev[0]))
+            elif avg == a[1]:
+                c2.append(random.normalvariate(hap[1], dev[1]))
+            elif avg == a[2]:
+                c3.append(random.normalvariate(hap[2], dev[2]))
+            else:  # avg == a[3]:
+                c4.append(random.normalvariate(hap[3], dev[
+                    3]))  # if the index of avg equals the specific cafeterias index then append
+    # a random happiness value to it
+    cf = c1 + c2 + c3 + c4  # combines all the lists
+    return sum(cf)  # returns their sum
 
 
-
-#TASK 4
+# TASK 4
 # this task simulates all of the previous functions and outputs calculated averages for them.
 def simulation(t: int, e=10):
     Explore_Count = 0
@@ -114,13 +115,13 @@ def simulation(t: int, e=10):
     C2 = hap[1]
     C3 = hap[2]
     C4 = hap[3]
-# changed these so they equal the global variables
+    # changed these so they equal the global variables
 
     for i in range(t):
         Explore_Count += exploreOnly()
         Exploit_Count += exploitOnly()
         eGreedy_Count += eGreedy(e)
-# created three variables, added the value of the three functions to them t times
+    # created three variables, added the value of the three functions to them t times
 
     Optimum_Happiness = 200 * C3
 
@@ -134,42 +135,34 @@ def simulation(t: int, e=10):
     Simulated_Happiness_Exploit = Exploit_Count / t
     Simulated_Regret_Exploit = Optimum_Happiness - Simulated_Happiness_Exploit
 
-    Expected_Happiness_eGreedy = (200 * (((100-e)/100) * C3) + (200 * ((e/400)*(C1 + C2 + C3 + C4))))
+    Expected_Happiness_eGreedy = (200 * (((100 - e) / 100) * C3) + (200 * ((e / 400) * (C1 + C2 + C3 + C4))))
     Expected_Regret_eGreedy = Optimum_Happiness - Expected_Happiness_eGreedy
     Simulated_Happiness_eGreedy = eGreedy_Count / t
     Simulated_Regret_eGreedy = Optimum_Happiness - Simulated_Happiness_eGreedy
-# calculating all values of optimum happiness, expected values, and simulated values
+    # calculating all values of optimum happiness, expected values, and simulated values
 
-    print("Optimum Happiness: " + str(Optimum_Happiness))
+    print("Optimum Happiness: %.2f" %Optimum_Happiness)
     print("\n")
 
     print("ExploreOnly:")
+    print("Expected Happiness: %.2f" %Expected_Happiness_Explore)
+    print("Expected Regret: %.2f" %Expected_Regret_Explore)
+    print("Simulated Happiness: %.2f" %Simulated_Happiness_Explore)
+    print("Simulated Regret: %.2f" %Simulated_Regret_Explore)
     print("\n")
-    print("Expected Happiness: " + str(Expected_Happiness_Explore))
-    print("\n")
-    print("Expected Regret: " + str(Expected_Regret_Explore))
-    print("\n")
-    print("Simulated Happiness: " + str(Simulated_Happiness_Explore))
-    print("\n")
-    print("Simulated Regret: " + str(Simulated_Regret_Explore))
 
     print("ExploitOnly:")
+    print("Expected Happiness: %.2f" %Expected_Happiness_Exploit)
+    print("Expected Regret: %.2f" %Expected_Regret_Exploit)
+    print("Simulated Happiness: %.2f" %Simulated_Happiness_Exploit)
+    print("Simulated Regret: %.2f" %Simulated_Regret_Exploit)
     print("\n")
-    print("Expected Happiness: " + str(Expected_Happiness_Exploit))
-    print("\n")
-    print("Expected Regret: " + str(Expected_Regret_Exploit))
-    print("\n")
-    print("Simulated Happiness: " + str(Simulated_Happiness_Exploit))
-    print("\n")
-    print("Simulated Regret: " + str(Simulated_Regret_Exploit))
 
     print("eGreedy:")
-    print("\n")
-    print("Expected Happiness: " + str(Expected_Happiness_eGreedy))
-    print("\n")
-    print("Expected Regret: " + str(Expected_Regret_eGreedy))
-    print("\n")
-    print("Simulated Happiness: " + str(Simulated_Happiness_eGreedy))
-    print("\n")
-    print("Simulated Regret: " + str(Simulated_Regret_eGreedy))
+    print("Expected Happiness: %.2f" %Expected_Happiness_eGreedy)
+    print("Expected Regret: %.2f"  %Expected_Regret_eGreedy)
+    print("Simulated Happiness: %.2f"  %Simulated_Happiness_eGreedy)
+    print("Simulated Regret: %.2f"  %Simulated_Regret_eGreedy)
 # printing out every value that was calculated before
+
+simulation(1000,12)
