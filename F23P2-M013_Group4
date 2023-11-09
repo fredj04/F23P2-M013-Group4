@@ -13,18 +13,16 @@ def exploitOnly():
     c2 = []
     c3 = []
     c4 = []
-    cfinal = []  # creates empty lists to store values
+    # creates empty lists to store values
     c1.append(random.normalvariate(hap[0], dev[0]))
     c2.append(random.normalvariate(hap[1], dev[1]))
     c3.append(random.normalvariate(hap[2], dev[2]))
-    c4.append(random.normalvariate(hap[3],
-                                   dev[3]))  # visit each cafteria once to start and generates a random happiness value
+    c4.append(random.normalvariate(hap[3], dev[3]))  # visit eachcafteria once to start and generates a random happiness value
     cfinal = c1 + c2 + c3 + c4  # creates list with first 4 happiness values
     m = max(cfinal)  # finds highest happiness value from first four days
     if m == cfinal[0]:  # checks to see if m is equal to value at index 0 of cfinal
         for i in range(196):
-            c1.append(random.normalvariate(hap[0], dev[
-                0]))  # if so proceeds to loop through generating a new happiness value for the
+            c1.append(random.normalvariate(hap[0], dev[0]))  # if so proceeds to loop through generating a new happiness value for the
     # rest of the 196 days to the specific cafeteria
     elif m == cfinal[1]:
         for i in range(196):
@@ -98,8 +96,7 @@ def eGreedy(e=10):
             elif avg == a[2]:
                 c3.append(random.normalvariate(hap[2], dev[2]))
             else:  # avg == a[3]:
-                c4.append(random.normalvariate(hap[3], dev[
-                    3]))  # if the index of avg equals the specific cafeterias index then append
+                c4.append(random.normalvariate(hap[3], dev[3]))  # if the index of avg equals the specific cafeterias index then append
     # a random happiness value to it
     cf = c1 + c2 + c3 + c4  # combines all the lists
     return sum(cf)  # returns their sum
@@ -123,7 +120,7 @@ def simulation(t: int, e=10):
         eGreedy_Count += eGreedy(e)
     # created three variables, added the value of the three functions to them t times
 
-    Optimum_Happiness = 200 * C3
+    Optimum_Happiness = 200 * max(hap)
 
     Expected_Happiness_Explore = 50 * (C1 + C2 + C3 + C4)
     Expected_Regret_Explore = Optimum_Happiness - Expected_Happiness_Explore
@@ -165,4 +162,4 @@ def simulation(t: int, e=10):
     print("Simulated Regret: %.2f"  %Simulated_Regret_eGreedy)
 # printing out every value that was calculated before
 
-simulation(1000,12)
+simulation(1000)
