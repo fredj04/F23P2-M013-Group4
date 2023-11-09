@@ -2,8 +2,8 @@ import random
 
 
 
-hap = [7, 4, 10, 5]
-dev = [3, 10, 6, 2]
+hap = [20, 10, 5, 25]
+dev = [1, 7, 2, 10]
 
 
 # TASK 1
@@ -127,12 +127,12 @@ def simulation(t: int, e=10):
     Simulated_Happiness_Explore = Explore_Count / t
     Simulated_Regret_Explore = Optimum_Happiness - Simulated_Happiness_Explore
 
-    Expected_Happiness_Exploit = (C1 + C2 + C4) + (197 * C3)
+    Expected_Happiness_Exploit = (C1 + C2 + C3+ C4) + (196 * max(hap))
     Expected_Regret_Exploit = Optimum_Happiness - Expected_Happiness_Exploit
     Simulated_Happiness_Exploit = Exploit_Count / t
     Simulated_Regret_Exploit = Optimum_Happiness - Simulated_Happiness_Exploit
 
-    Expected_Happiness_eGreedy = (200 * (((100 - e) / 100) * C3) + (200 * ((e / 400) * (C1 + C2 + C3 + C4))))
+    Expected_Happiness_eGreedy = (200 * (((100 - e) / 100) * max(hap)) + (200 * ((e / 400) * (C1 + C2 + C3 + C4))))
     Expected_Regret_eGreedy = Optimum_Happiness - Expected_Happiness_eGreedy
     Simulated_Happiness_eGreedy = eGreedy_Count / t
     Simulated_Regret_eGreedy = Optimum_Happiness - Simulated_Happiness_eGreedy
@@ -163,3 +163,4 @@ def simulation(t: int, e=10):
 # printing out every value that was calculated before
 
 simulation(1000)
+
